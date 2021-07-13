@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+    name: "akszabbix-2dc5"
+    labels:
+        app: "akszabbix-2dc5"
+    annotations:
+        kubernetes.io/ingress.class: addon-http-application-routing
+spec:
+    rules:
+        - host: ns-zabbix-akszabbix-2dc5.3ea490d4b9cf4c4ca4ac.westeurope.aksapp.io
+          http:
+            paths:
+            - path: /
+              backend:
+                serviceName: "akszabbix-2dc5"
+                servicePort: 80
