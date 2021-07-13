@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: "akszabbix-2dc5"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: "akszabbix-2dc5"
+  template:
+    metadata:
+      labels:
+        app: "akszabbix-2dc5"
+    spec:
+      containers:
+        - name: "akszabbix-2dc5"
+          image: "crzabbix.azurecr.io/akszabbix"
+          ports:
+          - containerPort: 80
